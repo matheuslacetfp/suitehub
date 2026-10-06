@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101117" />
+    <meta
+      name="description"
+      content="Acesse em um só lugar os painéis de métricas, entregas e produção."
+    />
+    <title>Hub | Espaço de trabalho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="./" aria-label="Hub, início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <rect x="3" y="3" width="11" height="11" rx="3" fill="currentColor" />
+              <rect x="18" y="3" width="11" height="11" rx="3" fill="currentColor" opacity=".62" />
+              <rect x="3" y="18" width="11" height="11" rx="3" fill="currentColor" opacity=".62" />
+              <rect x="18" y="18" width="11" height="11" rx="3" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="brand-copy"><strong>Hub</strong></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="nav-list" id="category-nav" aria-label="Filtrar por área"></nav>
+
+      </aside>
+
+      <main class="main-content">
+        <section class="welcome">
+          <div class="welcome-copy">
+            <h1>Tudo que você precisa.<br /><span>Em um só lugar.</span></h1>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+            <span class="orbit-star star-one">✳</span>
+            <span class="orbit-star star-two">✦</span>
+            <span class="orbit-star star-three">✳</span>
+            <div class="orbit-center">
+              <svg viewBox="0 0 32 32" fill="none">
+                <rect x="4" y="4" width="10" height="10" rx="3" fill="currentColor" />
+                <rect x="18" y="4" width="10" height="10" rx="3" fill="currentColor" opacity=".58" />
+                <rect x="4" y="18" width="10" height="10" rx="3" fill="currentColor" opacity=".58" />
+                <rect x="18" y="18" width="10" height="10" rx="3" fill="currentColor" />
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="overview" aria-label="Resumo do workspace">
+          <div class="overview-card">
+            <span class="overview-icon overview-purple" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" /><rect x="14" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" /><rect x="4" y="14" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" /><rect x="14" y="14" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.7" /></svg>
+            </span>
+            <span class="overview-copy"><strong id="app-count">04</strong><span>APPS DISPONÍVEIS</span></span>
+          </div>
+          <div class="overview-card">
+            <span class="overview-icon overview-blue" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /><path d="M16 6h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <span class="overview-copy"><strong>03</strong><span>ÁREAS DE TRABALHO</span></span>
+          </div>
+          <div class="overview-card overview-note">
+            <span class="overview-note-mark">✳</span>
+            <span>Seus favoritos ficam salvos <strong>neste navegador.</strong></span>
+          </div>
+        </section>
+
+        <section class="apps-section" aria-labelledby="apps-heading">
+          <div class="section-heading">
+            <div>
+              <div class="section-overline">SUA CENTRAL DE FERRAMENTAS</div>
+              <h2 id="apps-heading">Seus aplicativos <span id="visible-count"></span></h2>
+            </div>
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3" stroke="currentColor" stroke-width="1.7" /><path d="m15.5 15.5 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg>
+              <input id="app-search" type="search" placeholder="Buscar aplicativo..." autocomplete="off" />
+              <kbd>/</kbd>
+            </label>
+          </div>
+
+          <div class="filter-row" id="filter-row" aria-label="Filtros rápidos"></div>
+          <div class="apps-grid" id="apps-grid" aria-live="polite"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <span>⌕</span>
+            <strong>Nenhum aplicativo encontrado</strong>
+            <p>Tente outra busca ou selecione uma área diferente.</p>
+            <button id="clear-filters" type="button">Limpar filtros</button>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>HUB <span class="footer-dot">·</span> CENTRAL DE APLICATIVOS</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
